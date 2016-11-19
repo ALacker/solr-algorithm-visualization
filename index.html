@@ -5,9 +5,19 @@
         body {
             text-align: center;
             font-family: sans-serif;
+            font-size: 14px;
+        }
+        h1 {
+            font-size: 22px;
+        }
+        form {
+            padding: 20px;
         }
         form div {
-            padding-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        input {
+            margin-right: 10px;
         }
         #graph svg {
             padding-left: 50px;
@@ -261,8 +271,8 @@ function drawGraph(graphData, xstart, xend, fieldName) {
     minY = graphData['minY'];
     dataSet = graphData['nodes'];
 
-    viewportWidth = window.innerWidth - 200,
-    viewportHeight = window.innerHeight - 100;
+    viewportWidth = window.innerWidth - 300,
+    viewportHeight = window.innerHeight - 400;
 
     xScale = d3.scale.linear()
                 .domain([xstart, xend])
@@ -337,12 +347,15 @@ function updateGraph() {
 </script>
 
 <h1>Solr Algorithm Visualizer</h1>
-<p>This visualizer can plot what your score will be (y) versus the value of a solr field (x)</p>
+<p>
+    This visualizer can plot what your score will be (y) versus the value of a solr field (x)
+    <a href="https://github.com/ALacker/solr-algorithm-visualization">Source code</a>
+</p>
 
 <form onSubmit="updateGraph();return false;"> 
     <div>
         <label for="algorithm">Algorithm</label>
-        <input type="text" id="algorithm" name="algorithm" value="div(FIELD_NAME,50)" size="100" />
+        <input type="text" id="algorithm" name="algorithm" value="recip(exp(sub(div(FIELD_NAME,50),5)),1,1,1)" size="100" />
 
         <label for="field-name">Field Name</label>
         <input type="text" id="field-name" name="field-name" value="FIELD_NAME" />
@@ -355,7 +368,7 @@ function updateGraph() {
         <input type="text" id="x-end" name="x-end" value="500" />
     </div>
     <p id="error-display"></p>
-    <input id="submit" type="submit">
+    <input id="submit" type="submit" value="Update Graph">
 </form>
 
 <div id="graph"></div>
