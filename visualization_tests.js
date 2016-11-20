@@ -18,6 +18,10 @@ function testRecip() {
     return createFunctionFromString("recip(x, 4, 4, 0)")(2) === .5;
 }
 
+function testDivideBy0() {
+    return createFunctionFromString("div(x, 0)")(2) !== Infinity
+}
+
 function runTests() {
     // for each function, run
     var ul = document.getElementById('error-display'),

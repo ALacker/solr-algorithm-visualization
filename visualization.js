@@ -13,7 +13,9 @@ var LABEL_SPACING = 40,
             return parseFloat(a, 10) * parseFloat(b, 10);
         },
         'div': function(a, b) {
-            // TODO: elegantly handle divide by 0
+            if (b === 0) {
+                return parseFloat(a, 10) / 0.1; // not accurate, but keeps the graph from exploding
+            }
             return parseFloat(a, 10) / parseFloat(b, 10);
         },
         'mod': function(a, b) {
