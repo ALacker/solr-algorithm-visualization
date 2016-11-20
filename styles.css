@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+h1 {
+    font-size: 22px;
+}
+form {
+    padding: 20px;
+}
+form div {
+    padding-bottom: 10px;
+}
+input {
+    margin-right: 10px;
+}
+#graph svg {
+    padding-left: 50px;
+}
+#error-display {
+    color: red;
+    font-weight: bold;
+}
+.circle {
+    color: black;
+}
+.graph-label {
+    font-weight: 200;
+}
